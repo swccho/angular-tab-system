@@ -220,10 +220,10 @@ export class CalendarComponent {
 
   generateRandomEvents() {
     const eventTypes = [
-      { title: 'Meeting', color: 'bg-blue-500 text-white' },
-      { title: 'Deadline', color: 'bg-red-500 text-white' },
-      { title: 'Review', color: 'bg-green-500 text-white' },
-      { title: 'Call', color: 'bg-purple-500 text-white' }
+      { title: 'Meeting', color: 'bg-blue-500' },
+      { title: 'Deadline', color: 'bg-red-500' },
+      { title: 'Review', color: 'bg-green-500' },
+      { title: 'Call', color: 'bg-purple-500' }
     ];
     
     const numEvents = Math.floor(Math.random() * 3) + 1;

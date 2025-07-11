@@ -20,9 +20,7 @@ import { CommonModule } from '@angular/common';
                     (click)="activeSection = section.key"
                     [class]="activeSection === section.key ? 'bg-primary-100 text-primary-700 border-primary-200' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'"
                     class="w-full flex items-center px-4 py-3 text-left rounded-lg border transition-colors duration-200">
-              <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="section.icon"></path>
-              </svg>
+              <svg class="w-5 h-5 mr-3" [innerHTML]="section.icon"></svg>
               {{ section.label }}
             </button>
           </nav>

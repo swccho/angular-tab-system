@@ -114,9 +114,7 @@ import { CommonModule } from '@angular/common';
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div *ngFor="let insight of insights" class="p-4 rounded-lg border border-gray-200 hover:border-primary-200 transition-colors duration-200">
             <div [class]="insight.iconBg" class="w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="insight.icon"></path>
-              </svg>
+              <svg class="w-6 h-6" [innerHTML]="insight.icon"></svg>
             </div>
             <h3 class="font-semibold text-gray-900 mb-2">{{ insight.title }}</h3>
             <p class="text-gray-600 text-sm">{{ insight.description }}</p>

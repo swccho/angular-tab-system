@@ -25,9 +25,7 @@ import { CommonModule } from '@angular/common';
         <div *ngFor="let category of reportCategories" 
              class="card hover:shadow-lg transition-all duration-300 cursor-pointer group">
           <div [class]="category.iconBg" class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-200">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="category.icon"></path>
-            </svg>
+            <svg class="w-6 h-6" [innerHTML]="category.icon"></svg>
           </div>
           <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ category.title }}</h3>
           <p class="text-gray-600 text-sm mb-4">{{ category.description }}</p>
@@ -54,9 +52,7 @@ import { CommonModule } from '@angular/common';
                    class="flex items-center justify-between p-4 rounded-lg border border-gray-200 hover:border-primary-200 hover:bg-primary-50 transition-all duration-200 cursor-pointer group">
                 <div class="flex items-center space-x-4">
                   <div [class]="report.iconBg" class="w-10 h-10 rounded-lg flex items-center justify-center">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="report.icon"></path>
-                    </svg>
+                    <svg class="w-5 h-5" [innerHTML]="report.icon"></svg>
                   </div>
                   <div>
                     <h3 class="font-medium text-gray-900 group-hover:text-primary-700">{{ report.title }}</h3>
@@ -88,9 +84,7 @@ import { CommonModule } from '@angular/common';
                       class="w-full text-left p-3 rounded-lg border border-gray-200 hover:border-primary-200 hover:bg-primary-50 transition-colors duration-200 group">
                 <div class="flex items-center space-x-3">
                   <div [class]="template.iconBg" class="w-8 h-8 rounded-lg flex items-center justify-center">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="template.icon"></path>
-                    </svg>
+                    <svg class="w-4 h-4" [innerHTML]="template.icon"></svg>
                   </div>
                   <div class="flex-1">
                     <p class="font-medium text-gray-900 group-hover:text-primary-700">{{ template.name }}</p>
