@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs/operators';
 
 import { TabService } from '../../services/tab.service';
 import { TabContainerComponent } from '../tab-container/tab-container.component';
@@ -171,7 +169,7 @@ import { ReportsComponent } from '../../pages/reports/reports.component';
   `,
 })
 export class TabHostComponent implements OnInit {
-  constructor(private tabService: TabService, private router: Router) {}
+  constructor(private tabService: TabService) {}
 
   get tabs() {
     return this.tabService.tabs$;
@@ -184,16 +182,8 @@ export class TabHostComponent implements OnInit {
   tabCount = 0;
 
   ngOnInit() {
-    this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe((event) => {
-        const nav = event as NavigationEnd;
-        const page = nav.urlAfterRedirects.replace('/', '') || 'dashboard';
-        this.openOrActivateTab(page);
-      });
-
-    const initialPage = this.router.url.replace('/', '') || 'dashboard';
-    this.openOrActivateTab(initialPage);
+    // Open dashboard by default
+    this.openOrActivateTab('dashboard');
   }
 
   trackByTabId(index: number, tab: any) {
@@ -264,7 +254,7 @@ export class TabHostComponent implements OnInit {
   }
 
   openTab(page: string) {
-    this.router.navigate([page]);
+    this.openOrActivateTab(page);
   }
 
   openNewTab() {

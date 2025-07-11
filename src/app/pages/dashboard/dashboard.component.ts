@@ -86,7 +86,9 @@ import { CommonModule } from '@angular/common';
                   <p class="text-sm font-medium text-gray-900">{{ activity.title }}</p>
                   <p class="text-sm text-gray-500">{{ activity.description }}</p>
                   <p class="text-xs text-gray-400 mt-1">{{ activity.time }}</p>
-                </div>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="activity.icon"></path>
+                </svg>
               </div>
             </div>
           </div>
